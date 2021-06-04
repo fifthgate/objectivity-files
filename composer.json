@@ -1,0 +1,14 @@
+{
+    "name": "fifthgate/objectivity-files",
+    "description": "A Domain-Driven Files system for objectivity",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sam Baynham",
+            "email": "sam@fifthgate.net"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
