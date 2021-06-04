@@ -22,6 +22,7 @@ class FileService extends AbstractRepositoryDrivenDomainEntityManagementService 
         parent::__construct($fileRepository);
     }
 
+    //@codeCoverageIgnoreStart
     public function getEntityInfo() : array
     {
         return [
@@ -33,12 +34,8 @@ class FileService extends AbstractRepositoryDrivenDomainEntityManagementService 
             ]
         ];
     }
-/*
-    public function findManyByContentTypeMachineNameAndID(string $contentTypeMachineName, int $id) : ManagedFileCollectionInterface
-    {
-        return $this->repository->findManyByContentTypeMachineNameAndID($contentTypeMachineName, $id);
-    }
-*/
+    //@codeCoverageIgnoreEnd
+
     public function findByUrl(string $url) : ? ManagedFileInterface
     {
         return $this->repository->findByUrl($url);

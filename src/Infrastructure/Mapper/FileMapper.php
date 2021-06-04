@@ -25,11 +25,6 @@ class FileMapper extends AbstractDomainEntityMapper implements FileMapperInterfa
 
     protected $idColumnName = 'fid';
 
-    public function getJoinTableName() : string
-    {
-        return 'content_files';
-    }
-
     public function mapEntity(array $result) : DomainEntityInterface
     {
         return self::staticMap($result);

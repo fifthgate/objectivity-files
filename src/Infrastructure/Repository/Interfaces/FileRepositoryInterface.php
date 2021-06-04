@@ -10,11 +10,5 @@ use Fifthgate\Objectivity\Repositories\Infrastructure\Repository\Interfaces\Doma
 
 interface FileRepositoryInterface extends DomainEntityRepositoryInterface
 {
-    public function findManyByContentTypeMachineNameAndID(string $contentTypeMachineName, int $id) : ManagedFileCollectionInterface;
-  
     public function findByUrl(string $url) : ? ManagedFileInterface;
-
-    public function associateFileWithContent(ManagedFileInterface $file, string $contentTypeMachineName, int $contentID);
-
-    public function updateFilesForContent(ContentManageableDomainEntityInterface $contentItem);
 }
