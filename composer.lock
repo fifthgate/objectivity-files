@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ba7d6c079eeea8859b4b75d8933aeef6",
+    "content-hash": "5526307ff7749f673387da9ea96b562c",
     "packages": [
         {
             "name": "fifthgate/objectivity-core",
@@ -116,7 +116,7 @@
         },
         {
             "name": "fifthgate/objectivity-users",
-            "version": "dev-master",
+            "version": "v0.2.1",
             "source": {
                 "type": "git",
                 "url": "git@github.com:fifthgate/objectivity-users.git",
@@ -137,7 +137,6 @@
                 "orchestra/testbench": "7.0.x-dev",
                 "phpunit/phpunit": "^9.3.3"
             },
-            "default-branch": true,
             "type": "library",
             "extra": {
                 "laravel": {
@@ -1048,12 +1047,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/FakerPHP/Faker.git",
-                "reference": "1eb8e96767c810fb6f662cd9fb9ee05ab5682fe8"
+                "reference": "98130c68c8a15784524cc7b38829525b0f0c08aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/1eb8e96767c810fb6f662cd9fb9ee05ab5682fe8",
-                "reference": "1eb8e96767c810fb6f662cd9fb9ee05ab5682fe8",
+                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/98130c68c8a15784524cc7b38829525b0f0c08aa",
+                "reference": "98130c68c8a15784524cc7b38829525b0f0c08aa",
                 "shasum": ""
             },
             "require": {
@@ -1106,7 +1105,7 @@
                 "issues": "https://github.com/FakerPHP/Faker/issues",
                 "source": "https://github.com/FakerPHP/Faker/tree/main"
             },
-            "time": "2021-06-01T08:09:01+00:00"
+            "time": "2021-06-04T15:42:46+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -7167,7 +7166,6 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "fifthgate/objectivity-users": 20,
         "orchestra/testbench": 20
     },
     "prefer-stable": false,
