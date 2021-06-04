@@ -9,11 +9,4 @@ use Fifthgate\Objectivity\Content\Domain\Core\Interfaces\ContentManageableDomain
 
 interface FileMapperInterface extends DomainEntityMapperInterface
 {
-    public function findManyByContentTypeMachineNameAndID(string $contentTypeMachineName, int $id) : ManagedFileCollectionInterface;
-
-    public function getJoinTableName() : string;
-
-    public function associateFileWithContent(ManagedFileInterface $file, string $contentTypeMachineName, int $contentID);
-
-    public function updateFilesForContent(ContentManageableDomainEntityInterface $contentItem);
 }

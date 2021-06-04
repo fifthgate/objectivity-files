@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d499ca5f54dee94ffcc8cb274fa2a032",
+    "content-hash": "ba7d6c079eeea8859b4b75d8933aeef6",
     "packages": [
         {
             "name": "fifthgate/objectivity-core",
@@ -113,6 +113,64 @@
                 "issues": "https://github.com/fifthgate/objectivity-repos/issues"
             },
             "time": "2021-05-25T16:07:11+00:00"
+        },
+        {
+            "name": "fifthgate/objectivity-users",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "git@github.com:fifthgate/objectivity-users.git",
+                "reference": "425e1231a8cc1866f9013c2fabf379055ad1bba3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fifthgate/objectivity-users/zipball/425e1231a8cc1866f9013c2fabf379055ad1bba3",
+                "reference": "425e1231a8cc1866f9013c2fabf379055ad1bba3",
+                "shasum": ""
+            },
+            "require": {
+                "fifthgate/objectivity-core": "^v0.2.4",
+                "fifthgate/objectivity-repos": "^v0.2.2",
+                "guzzlehttp/guzzle": "^7.2"
+            },
+            "require-dev": {
+                "orchestra/testbench": "7.0.x-dev",
+                "phpunit/phpunit": "^9.3.3"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Fifthgate\\Objectivity\\Users\\UserServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Fifthgate\\Objectivity\\Users\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Fifthgate\\Objectivity\\Users\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sam Baynham",
+                    "email": "sam@fifthgate.net"
+                }
+            ],
+            "description": "A Domain-Driven Users package for Laravel 8",
+            "support": {
+                "source": "https://github.com/fifthgate/objectivity-users/tree/v0.2.1",
+                "issues": "https://github.com/fifthgate/objectivity-users/issues"
+            },
+            "time": "2021-06-04T14:03:31+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -7109,6 +7167,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "fifthgate/objectivity-users": 20,
         "orchestra/testbench": 20
     },
     "prefer-stable": false,

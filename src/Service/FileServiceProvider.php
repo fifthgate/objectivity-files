@@ -19,7 +19,10 @@ class FileServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        
+        
+        $migrationDir = __DIR__.'/../../database/migrations';
+        $this->loadMigrationsFrom($migrationDir);
     }
 
     /**

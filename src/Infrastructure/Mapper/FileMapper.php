@@ -68,31 +68,6 @@ class FileMapper extends AbstractDomainEntityMapper implements FileMapperInterfa
         return $file;
     }
 
-    public function delete(DomainEntityInterface $domainEntity)
-    {
-        $this->db->table($this->getJoinTableName())
-            ->where('fid', '=', $domainEntity->getID())
-            ->delete();
-        parent::delete($domainEntity);
-    }
-
-    public function findManyByContentTypeMachineNameAndID(string $contentTypeMachineName, int $id) : ManagedFileCollectionInterface
-    {
-        $files = new ManagedFileCollection;
-        $results = $this->db->table($this->getJoinTableName())
-            ->select('fid')
-            ->where([
-                ['content_id', '=', $id],
-                ['contentTypeMachineName', '=', $contentTypeMachineName]
-            ])
-            ->get()
-            ->toArray();
-        foreach ($results as $result) {
-            $files->add($this->find($result->fid));
-        }
-        return $files;
-    }
-
     protected function update(DomainEntityInterface $domainEntity) : DomainEntityInterface
     {
         $this->db->table($this->getTableName())->where('fid', '=', $domainEntity->getID())
@@ -125,34 +100,5 @@ class FileMapper extends AbstractDomainEntityMapper implements FileMapperInterfa
         );
         $domainEntity->setID($id);
         return $domainEntity;
-    }
-
-    public function associateFileWithContent(ManagedFileInterface $file, string $contentTypeMachineName, int $contentID)
-    {
-        $this->db->table($this->getJoinTableName())->insert([
-            'contentTypeMachineName' => $contentTypeMachineName,
-            'fid' => $file->getID(),
-            'content_id' => $contentID
-        ]);
-    }
-
-    public function updateFilesForContent(ContentManageableDomainEntityInterface $contentItem)
-    {
-        $this->wipeFilesForContent($contentItem->getContentTypeMachineName(), $contentItem->getID());
-        if ($contentItem->getFiles() && !$contentItem->getFiles()->isEmpty()) {
-            foreach ($contentItem->getFiles() as $file) {
-                $this->associateFileWithContent($file, $contentItem->getContentTypeMachineName(), $contentItem->getID());
-            }
-        }
-    }
-
-    private function wipeFilesForContent(string $contentTypeMachineName, int $contentID)
-    {
-        $this->db->table($this->getJoinTableName())
-            ->where([
-                ['content_id', '=', $contentID],
-                ['contentTypeMachineName', '=', $contentTypeMachineName]
-            ])
-            ->delete();
     }
 }

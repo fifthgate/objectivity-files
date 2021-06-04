@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Fifthgate\Objectivity\Files\Tests\Unit;
 
 use Fifthgate\Objectivity\Files\Tests\ObjectivityFilesTestCase;
 use Fifthgate\Objectivity\Files\Service\Interfaces\FileServiceInterface;
@@ -11,12 +11,9 @@ use Fifthgate\Objectivity\Files\Domain\Collection\ManagedFileCollection;
 use Fifthgate\Objectivity\Content\Domain\Core\Interfaces\ContentTypeDefinitionInterface;
 use Carbon\Carbon;
 use \DateTimeInterface;
-use Illuminate\Foundation\Testing\WithFaker;
 
 class FileDomainTest extends ObjectivityFilesTestCase
 {
-    use WithFaker;
-    
     public function testFile()
     {
         $testFileSlug = $this->faker->regexify('[A-Za-z0-9]{20}');
