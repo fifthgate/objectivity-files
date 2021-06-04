@@ -48,7 +48,7 @@
      "extra": {
         "laravel": {
             "providers": [
-                "Fifthgate\\Objectivity\\Files\\FileServiceProvider"
+                "Fifthgate\\Objectivity\\Files\\Service\\FileServiceProvider"
             ]
         }
     }
