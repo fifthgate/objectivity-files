@@ -72,17 +72,6 @@ class FileService extends AbstractRepositoryDrivenDomainEntityManagementService 
         return preg_replace("/[^a-z0-9\.\-\_]/", "", strtolower($fileName));
     }
 
-/*
-    public function associateFileWithContent(ManagedFileInterface $file, string $contentTypeMachineName, int $contentID)
-    {
-        return $this->repository->associateFileWithContent($file, $contentTypeMachineName, $contentID);
-    }
-
-    public function updateFilesForContent(ContentManageableDomainEntityInterface $contentItem)
-    {
-        return $this->repository->updateFilesForContent($contentItem);
-    }
-*/
     public function findByFileName(string $fileName) : ? ManagedFileInterface
     {
         return $this->repository->findByFileName($fileName);
