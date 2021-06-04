@@ -1,10 +1,10 @@
 <?php
 
-namespace Services\Files\Domain;
+namespace Fifthgate\Objectivity\Files\Domain;
 
-use Services\Files\Domain\Interfaces\ManagedFileInterface;
+use Fifthgate\Objectivity\Files\Domain\Interfaces\ManagedFileInterface;
 use \DateTimeInterface;
-use Services\Core\Domain\AbstractDomainEntity;
+use Fifthgate\Objectivity\Core\Domain\AbstractDomainEntity;
 
 class ManagedFile extends AbstractDomainEntity implements ManagedFileInterface
 {

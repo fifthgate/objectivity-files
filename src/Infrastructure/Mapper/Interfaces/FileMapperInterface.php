@@ -1,11 +1,11 @@
 <?php
 
-namespace Services\Files\Infrastructure\Mapper\Interfaces;
+namespace Fifthgate\Objectivity\Files\Infrastructure\Mapper\Interfaces;
 
-use Services\Core\Infrastructure\Mapper\Interfaces\DomainEntityMapperInterface;
-use Services\Files\Domain\Collection\Interfaces\ManagedFileCollectionInterface;
-use Services\Files\Domain\Interfaces\ManagedFileInterface;
-use Services\Content\Domain\Core\Interfaces\ContentManageableDomainEntityInterface;
+use Fifthgate\Objectivity\Repositories\Infrastructure\Mapper\Interfaces\DomainEntityMapperInterface;
+use Fifthgate\Objectivity\Files\Domain\Collection\Interfaces\ManagedFileCollectionInterface;
+use Fifthgate\Objectivity\Files\Domain\Interfaces\ManagedFileInterface;
+use Fifthgate\Objectivity\Content\Domain\Core\Interfaces\ContentManageableDomainEntityInterface;
 
 interface FileMapperInterface extends DomainEntityMapperInterface
 {

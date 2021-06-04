@@ -1,18 +1,18 @@
 <?php
 
-namespace Services\Files\Service;
+namespace Fifthgate\Objectivity\Files\Service;
 
-use Services\Files\Service\Interfaces\FileServiceInterface;
-use Services\Files\Domain\Interfaces\ManagedFileInterface;
-use Services\Files\Domain\Collection\Interfaces\ManagedFileCollectionInterface;
-use Services\Files\Infrastructure\Repository\Interfaces\FileRepositoryInterface;
-use Services\Content\Domain\Core\Interfaces\ContentTypeDefinitionInterface;
+use Fifthgate\Objectivity\Files\Service\Interfaces\FileServiceInterface;
+use Fifthgate\Objectivity\Files\Domain\Interfaces\ManagedFileInterface;
+use Fifthgate\Objectivity\Files\Domain\Collection\Interfaces\ManagedFileCollectionInterface;
+use Fifthgate\Objectivity\Files\Infrastructure\Repository\Interfaces\FileRepositoryInterface;
+//use Fifthgate\Objectivity\Content\Domain\Core\Interfaces\ContentTypeDefinitionInterface;
 use Illuminate\Http\UploadedFile;
 use Storage;
-use Services\Content\Domain\Core\Interfaces\ContentManageableDomainEntityInterface;
+//use Fifthgate\Objectivity\Content\Domain\Core\Interfaces\ContentManageableDomainEntityInterface;
 use Carbon\Carbon;
-use Services\Core\Service\AbstractRepositoryDrivenDomainEntityManagementService;
-use Services\Core\Domain\Interfaces\DomainEntityInterface;
+use Fifthgate\Objectivity\Repositories\Service\AbstractRepositoryDrivenDomainEntityManagementService;
+use Fifthgate\Objectivity\Core\Domain\Interfaces\DomainEntityInterface;
 
 class FileService extends AbstractRepositoryDrivenDomainEntityManagementService implements FileServiceInterface
 {
@@ -33,12 +33,12 @@ class FileService extends AbstractRepositoryDrivenDomainEntityManagementService 
             ]
         ];
     }
-
+/*
     public function findManyByContentTypeMachineNameAndID(string $contentTypeMachineName, int $id) : ManagedFileCollectionInterface
     {
         return $this->repository->findManyByContentTypeMachineNameAndID($contentTypeMachineName, $id);
     }
-
+*/
     public function findByUrl(string $url) : ? ManagedFileInterface
     {
         return $this->repository->findByUrl($url);
@@ -72,7 +72,7 @@ class FileService extends AbstractRepositoryDrivenDomainEntityManagementService 
         return preg_replace("/[^a-z0-9\.\-\_]/", "", strtolower($fileName));
     }
 
-
+/*
     public function associateFileWithContent(ManagedFileInterface $file, string $contentTypeMachineName, int $contentID)
     {
         return $this->repository->associateFileWithContent($file, $contentTypeMachineName, $contentID);
@@ -82,7 +82,7 @@ class FileService extends AbstractRepositoryDrivenDomainEntityManagementService 
     {
         return $this->repository->updateFilesForContent($contentItem);
     }
-
+*/
     public function findByFileName(string $fileName) : ? ManagedFileInterface
     {
         return $this->repository->findByFileName($fileName);

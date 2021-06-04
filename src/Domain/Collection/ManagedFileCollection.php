@@ -1,9 +1,9 @@
 <?php
 
-namespace Services\Files\Domain\Collection;
+namespace Fifthgate\Objectivity\Files\Domain\Collection;
 
-use Services\Core\Domain\Collection\AbstractDomainEntityCollection;
-use Services\Files\Domain\Collection\Interfaces\ManagedFileCollectionInterface;
+use Fifthgate\Objectivity\Core\Domain\Collection\AbstractDomainEntityCollection;
+use Fifthgate\Objectivity\Files\Domain\Collection\Interfaces\ManagedFileCollectionInterface;
 
 class ManagedFileCollection extends AbstractDomainEntityCollection implements ManagedFileCollectionInterface
 {

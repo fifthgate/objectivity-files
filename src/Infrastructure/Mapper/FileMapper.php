@@ -1,19 +1,19 @@
 <?php
 
-namespace Services\Files\Infrastructure\Mapper;
+namespace Fifthgate\Objectivity\Files\Infrastructure\Mapper;
 
-use Services\Files\Infrastructure\Mapper\Interfaces\FileMapperInterface;
-use Services\Core\Infrastructure\Mapper\AbstractDomainEntityMapper;
-use Services\Core\Domain\Interfaces\DomainEntityInterface;
-use Services\Core\Domain\Collection\Interfaces\DomainEntityCollectionInterface;
-use Services\Files\Domain\Collection\Interfaces\ManagedFileCollectionInterface;
+use Fifthgate\Objectivity\Files\Infrastructure\Mapper\Interfaces\FileMapperInterface;
+use Fifthgate\Objectivity\Repositories\Infrastructure\Mapper\AbstractDomainEntityMapper;
+use Fifthgate\Objectivity\Core\Domain\Interfaces\DomainEntityInterface;
+use Fifthgate\Objectivity\Core\Domain\Collection\Interfaces\DomainEntityCollectionInterface;
+use Fifthgate\Objectivity\Files\Domain\Collection\Interfaces\ManagedFileCollectionInterface;
 use Illuminate\Database\DatabaseManager as DB;
-use Services\Content\Domain\Core\Interfaces\ContentTypeDefinitionInterface;
-use Services\Files\Domain\Collection\ManagedFileCollection;
-use Services\Files\Domain\ManagedFile;
+use Fifthgate\Objectivity\Content\Domain\Core\Interfaces\ContentTypeDefinitionInterface;
+use Fifthgate\Objectivity\Files\Domain\Collection\ManagedFileCollection;
+use Fifthgate\Objectivity\Files\Domain\ManagedFile;
 use Carbon\Carbon;
-use Services\Files\Domain\Interfaces\ManagedFileInterface;
-use Services\Content\Domain\Core\Interfaces\ContentManageableDomainEntityInterface;
+use Fifthgate\Objectivity\Files\Domain\Interfaces\ManagedFileInterface;
+use Fifthgate\Objectivity\Content\Domain\Core\Interfaces\ContentManageableDomainEntityInterface;
 
 class FileMapper extends AbstractDomainEntityMapper implements FileMapperInterface
 {

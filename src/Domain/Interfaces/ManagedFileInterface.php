@@ -1,17 +1,13 @@
 <?php
 
-namespace Services\Files\Domain\Interfaces;
+namespace Fifthgate\Objectivity\Files\Domain\Interfaces;
 
 use \DateTimeInterface;
-use Services\Core\Domain\Interfaces\TimestampingDomainEntityInterface;
-use Services\Core\Domain\Interfaces\DomainEntityInterface;
+use Fifthgate\Objectivity\Core\Domain\Interfaces\TimestampingDomainEntityInterface;
+use Fifthgate\Objectivity\Core\Domain\Interfaces\DomainEntityInterface;
 
 interface ManagedFileInterface extends TimestampingDomainEntityInterface, DomainEntityInterface
 {
-    public function setID(int $id);
-
-    public function getID() : ?int;
-
     public function setTitle(string $title);
 
     public function getTitle() : string;
@@ -23,14 +19,6 @@ interface ManagedFileInterface extends TimestampingDomainEntityInterface, Domain
     public function setFileType(string $fileType);
 
     public function getFileType() : string;
-
-    public function setCreatedAt(DateTimeInterface $createdAt);
-
-    public function getCreatedAt() : DateTimeInterface;
-
-    public function setUpdatedAt(DateTimeInterface $updatedAt);
-
-    public function getUpdatedAt() : DateTimeInterface;
 
     public function setAuthorUID(int $authorUID);
 

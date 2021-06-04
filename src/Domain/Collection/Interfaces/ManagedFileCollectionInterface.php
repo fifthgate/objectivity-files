@@ -1,6 +1,6 @@
 <?php
 
-namespace Services\Files\Domain\Collection\Interfaces;
+namespace Fifthgate\Objectivity\Files\Domain\Collection\Interfaces;
 
 interface ManagedFileCollectionInterface
 {

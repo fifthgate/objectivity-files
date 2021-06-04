@@ -19,6 +19,16 @@
         "phpunit/phpunit": "^9.3.3",
         "orchestra/testbench": "7.0.x-dev"
     },
+    "autoload": {
+        "psr-4": {
+            "Fifthgate\\Objectivity\\Files\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Fifthgate\\Objectivity\\Files\\Tests\\": "tests/"
+        }
+    },
     "repositories": [
         {
             "type": "vcs",
@@ -29,6 +39,7 @@
             "url": "https://github.com/fifthgate/objectivity-repos"
         }
     ],
+
      "extra": {
         "laravel": {
             "providers": [

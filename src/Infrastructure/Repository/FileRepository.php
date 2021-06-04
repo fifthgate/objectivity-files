@@ -1,14 +1,14 @@
 <?php
 
-namespace Services\Files\Infrastructure\Repository;
+namespace Fifthgate\Objectivity\Files\Infrastructure\Repository;
 
-use Services\Files\Infrastructure\Repository\Interfaces\FileRepositoryInterface;
-use Services\Files\Infrastructure\Mapper\Interfaces\FileMapperInterface;
-use Services\Files\Domain\Collection\Interfaces\ManagedFileCollectionInterface;
-use Services\Content\Domain\Core\Interfaces\ContentTypeDefinitionInterface;
-use Services\Files\Domain\Interfaces\ManagedFileInterface;
-use Services\Content\Domain\Core\Interfaces\ContentManageableDomainEntityInterface;
-use Services\Core\Infrastructure\Repository\AbstractDomainEntityRepository;
+use Fifthgate\Objectivity\Files\Infrastructure\Repository\Interfaces\FileRepositoryInterface;
+use Fifthgate\Objectivity\Files\Infrastructure\Mapper\Interfaces\FileMapperInterface;
+use Fifthgate\Objectivity\Files\Domain\Collection\Interfaces\ManagedFileCollectionInterface;
+use Fifthgate\Objectivity\Content\Domain\Core\Interfaces\ContentTypeDefinitionInterface;
+use Fifthgate\Objectivity\Files\Domain\Interfaces\ManagedFileInterface;
+use Fifthgate\Objectivity\Content\Domain\Core\Interfaces\ContentManageableDomainEntityInterface;
+use Fifthgate\Objectivity\Repositories\Infrastructure\Repository\AbstractDomainEntityRepository;
 
 class FileRepository extends AbstractDomainEntityRepository implements FileRepositoryInterface
 {
