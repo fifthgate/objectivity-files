@@ -49,7 +49,7 @@ class FileMapper extends AbstractDomainEntityMapper implements FileMapperInterfa
 
     public static function staticMap(array $result) : DomainEntityInterface
     {
-        $file = new ManagedFile;
+        $file = new ManagedFile($result['filename'], $result['filesystem']);
         $file->setID($result['fid']);
         $file->setTitle($result['title']);
         $file->setURL($result['url']);

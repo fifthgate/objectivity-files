@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Fifthgate\Objectivity\Files\Domain\Interfaces;
 
 use \DateTimeInterface;
@@ -8,23 +10,23 @@ use Fifthgate\Objectivity\Core\Domain\Interfaces\DomainEntityInterface;
 
 interface ManagedFileInterface extends TimestampingDomainEntityInterface, DomainEntityInterface
 {
-    public function setTitle(string $title);
+    public function setTitle(string $title): void;
 
     public function getTitle() : string;
 
-    public function setURL(string $url);
+    public function setURL(string $url): void;
 
     public function getURL() : string;
 
-    public function setFileType(string $fileType);
+    public function setFileType(string $fileType): void;
 
     public function getFileType() : string;
 
-    public function setAuthorUID(int $authorUID);
+    public function setAuthorUID(int $authorUID): void;
 
     public function getAuthorUID() : int;
 
-    public function setLastEditorUID(int $lastEditorUID);
+    public function setLastEditorUID(int $lastEditorUID): void;
 
     public function getLastEditorUID() : int;
 
@@ -38,5 +40,5 @@ interface ManagedFileInterface extends TimestampingDomainEntityInterface, Domain
 
     public function getFileSystem() : string;
 
-    public function setFileSystem(string $fileSystem);
+    public function setFileSystem(string $fileSystem): void;
 }

@@ -24,14 +24,22 @@ class ManagedFile extends AbstractDomainEntity implements ManagedFileInterface
 
     protected string $fileSystem;
 
-    protected array $hrFileTypeIndices = [
+    protected const HR_FILE_TYPE_INDICES = [
         'application/pdf' => 'PDF Document',
         'audio/mpeg' => 'MP3 Audio',
         'image/jpeg' => 'JPEG Image',
         'image/png' => 'PNG Image'
     ];
 
-    public function setTitle(string $title)
+    public function __construct(
+        string $fileName,
+        string $fileSystem
+    ) {
+        $this->fileName = $fileName;
+        $this->fileSystem = $fileSystem;
+    }
+
+    public function setTitle(string $title): void
     {
         $this->title = $title;
     }
@@ -41,7 +49,7 @@ class ManagedFile extends AbstractDomainEntity implements ManagedFileInterface
         return $this->title;
     }
 
-    public function setURL(string $url)
+    public function setURL(string $url): void
     {
         $this->url = $url;
     }
@@ -51,7 +59,7 @@ class ManagedFile extends AbstractDomainEntity implements ManagedFileInterface
         return $this->url;
     }
 
-    public function setFileType(string $fileType)
+    public function setFileType(string $fileType): void
     {
         $this->fileType = $fileType;
     }
@@ -62,7 +70,7 @@ class ManagedFile extends AbstractDomainEntity implements ManagedFileInterface
         return $this->fileType;
     }
 
-    public function setAuthorUID(int $authorUID)
+    public function setAuthorUID(int $authorUID): void
     {
         $this->authorUID = $authorUID;
     }
@@ -72,7 +80,7 @@ class ManagedFile extends AbstractDomainEntity implements ManagedFileInterface
         return $this->authorUID;
     }
 
-    public function setLastEditorUID(int $lastEditorUID)
+    public function setLastEditorUID(int $lastEditorUID): void
     {
         $this->lastEditorUID = $lastEditorUID;
     }
@@ -87,14 +95,14 @@ class ManagedFile extends AbstractDomainEntity implements ManagedFileInterface
         return $this->fileName;
     }
 
-    public function setFileName(string $fileName)
+    public function setFileName(string $fileName): void
     {
         $this->fileName = $fileName;
     }
 
     public function getHRTypeName() : string
     {
-        return isset($this->hrFileTypeIndices[$this->getFileType()]) ? $this->hrFileTypeIndices[$this->getFileType()] : $this->getFileType();
+        return self::HR_FILE_TYPE_INDICES[$this->getFileType()] ?? $this->getFileType();
     }
 
     public function getFileSystem() : string
@@ -102,7 +110,7 @@ class ManagedFile extends AbstractDomainEntity implements ManagedFileInterface
         return $this->fileSystem;
     }
 
-    public function setFileSystem(string $fileSystem)
+    public function setFileSystem(string $fileSystem): void
     {
         $this->fileSystem = $fileSystem;
     }

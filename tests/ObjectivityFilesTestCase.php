@@ -75,7 +75,7 @@ abstract class ObjectivityFilesTestCase extends TestCase
     protected function generateTestFile(string $testURL, string $testFileName, string $type, int $uid = 1, int $id = null) : ManagedFileInterface
     {
         $createdAt = new Carbon('2020-01-01');
-        $file = new ManagedFile;
+        $file = new ManagedFile($testFileName, 'public');
         if ($id) {
             $file->setID($id);
         }
@@ -86,8 +86,6 @@ abstract class ObjectivityFilesTestCase extends TestCase
         $file->setUpdatedAt($createdAt);
         $file->setAuthorUID($uid);
         $file->setLastEditorUID($uid);
-        $file->setFileName($testFileName);
-        $file->setFileSystem('public');
         return $file;
     }
 
