@@ -25,29 +25,29 @@ class FileMapper extends AbstractDomainEntityMapper implements FileMapperInterfa
 
     protected $idColumnName = 'fid';
 
-    public function mapEntity(array $result) : DomainEntityInterface
+    public function mapEntity(array $result): DomainEntityInterface
     {
         return self::staticMap($result);
     }
 
-    public function makeCollection() : DomainEntityCollectionInterface
+    public function makeCollection(): DomainEntityCollectionInterface
     {
-        return new ManagedFileCollection;
+        return new ManagedFileCollection();
     }
 
     /**
      * @codeCoverageIgnore
      */
-    public static function staticMapMany(array $results) : DomainEntityCollectionInterface
+    public static function staticMapMany(array $results): DomainEntityCollectionInterface
     {
-        $collection = new ManagedFileCollection;
+        $collection = new ManagedFileCollection();
         foreach ($results as $result) {
             $collection->add(self::staticMap((array) $result));
         }
         return $collection;
     }
 
-    public static function staticMap(array $result) : DomainEntityInterface
+    public static function staticMap(array $result): DomainEntityInterface
     {
         $file = new ManagedFile($result['filename'], $result['filesystem']);
         $file->setID($result['fid']);
@@ -63,7 +63,7 @@ class FileMapper extends AbstractDomainEntityMapper implements FileMapperInterfa
         return $file;
     }
 
-    protected function update(DomainEntityInterface $domainEntity) : DomainEntityInterface
+    protected function update(DomainEntityInterface $domainEntity): DomainEntityInterface
     {
         $this->db->table($this->getTableName())->where('fid', '=', $domainEntity->getID())
             ->update([
@@ -79,7 +79,7 @@ class FileMapper extends AbstractDomainEntityMapper implements FileMapperInterfa
         return $domainEntity;
     }
 
-    protected function create(DomainEntityInterface $domainEntity) : DomainEntityInterface
+    protected function create(DomainEntityInterface $domainEntity): DomainEntityInterface
     {
         $id = $this->db->table($this->getTableName())->insertGetId(
             [

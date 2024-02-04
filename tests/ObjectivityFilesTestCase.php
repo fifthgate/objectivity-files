@@ -12,7 +12,7 @@ use Carbon\Carbon;
 use Fifthgate\Objectivity\Users\Service\Interfaces\UserServiceInterface;
 use Fifthgate\Objectivity\Users\Domain\LaravelUser;
 use Illuminate\Support\Facades\Hash;
-use \DateTimeInterface;
+use DateTimeInterface;
 use Fifthgate\Objectivity\Users\Domain\Interfaces\UserInterface;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -52,7 +52,7 @@ abstract class ObjectivityFilesTestCase extends TestCase
         ]);
     }
 
-    protected function saveTestFile(UserInterface $user) : ManagedFileInterface
+    protected function saveTestFile(UserInterface $user): ManagedFileInterface
     {
         $testFileSlug = $this->faker->regexify('[A-Za-z0-9]{20}');
         $testFileName = $testFileSlug.'.jpg';
@@ -72,7 +72,7 @@ abstract class ObjectivityFilesTestCase extends TestCase
         $this->loadMigrationsFrom(__DIR__ . '/migrations');
     }
 
-    protected function generateTestFile(string $testURL, string $testFileName, string $type, int $uid = 1, int $id = null) : ManagedFileInterface
+    protected function generateTestFile(string $testURL, string $testFileName, string $type, int $uid = 1, int $id = null): ManagedFileInterface
     {
         $createdAt = new Carbon('2020-01-01');
         $file = new ManagedFile($testFileName, 'public');
@@ -89,13 +89,15 @@ abstract class ObjectivityFilesTestCase extends TestCase
         return $file;
     }
 
-    protected function generateNewUser(DateTimeInterface $testStart, array $overrides = [])
+    protected function generateNewUser(DateTimeInterface $testStart, array $overrides = []): LaravelUser
     {
-        $user = new LaravelUser;
+        $user = new LaravelUser(
+            $overrides['email'] ?? 'lipsum@lauraipsum.com',
+            $overrides['name'] ?? 'Laura Ipsum'
+        );
         $roles = $this->userService->getRoles();
         $user->setPassword(Hash::make('LoremIpsum'));
-        $user->setName($overrides['name'] ?? 'Laura Ipsum');
-        $user->setEmailAddress($overrides['email'] ?? 'lipsum@lauraipsum.com');
+
         $user->setCreatedAt($testStart);
         $user->setUpdatedAt($testStart);
         $user->setRoles($roles);

@@ -10,9 +10,9 @@ use Fifthgate\Objectivity\Repositories\Service\Interfaces\DomainEntityManagement
 
 interface FileServiceInterface extends DomainEntityManagementServiceInterface
 {
-    public function findByFileName(string $fileName) : ? ManagedFileInterface;
+    public function findByFileName(string $fileName): ?ManagedFileInterface;
 
-    public static function sanitiseFileName(string $fileName) : string;
+    public static function sanitiseFileName(string $fileName): string;
 
-    public function storeFile(ManagedFileInterface $file, UploadedFile $payload) : ? ManagedFileInterface;
+    public function storeFile(ManagedFileInterface $file, UploadedFile $payload): ?ManagedFileInterface;
 }

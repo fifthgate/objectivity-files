@@ -12,7 +12,7 @@ use Fifthgate\Objectivity\Files\Domain\Collection\Interfaces\ManagedFileCollecti
 use Fifthgate\Objectivity\Files\Domain\Collection\ManagedFileCollection;
 
 use Carbon\Carbon;
-use \DateTimeInterface;
+use DateTimeInterface;
 use Illuminate\Http\UploadedFile;
 use Fifthgate\Objectivity\Files\Tests\ObjectivityFilesTestCase;
 use Fifthgate\Objectivity\Users\Domain\Interfaces\UserInterface;
@@ -26,14 +26,14 @@ class FileServiceTest extends ObjectivityFilesTestCase
 
     public function testFileCreate()
     {
-        $user = $this->userService->save($this->generateNewUser(new Carbon));
+        $user = $this->userService->save($this->generateNewUser(new Carbon()));
         $file = $this->saveTestFile($user);
         $this->assertInstanceOf(ManagedFileInterface::class, $file);
     }
 
     public function testFileUpdate()
     {
-        $user = $this->userService->save($this->generateNewUser(new Carbon));
+        $user = $this->userService->save($this->generateNewUser(new Carbon()));
         $file = $this->saveTestFile($user);
         $file->setTitle('Altered Title');
         $alteredFile = $this->fileService->save($file);
@@ -42,7 +42,7 @@ class FileServiceTest extends ObjectivityFilesTestCase
 
     public function testFileFind()
     {
-        $user = $this->userService->save($this->generateNewUser(new Carbon));
+        $user = $this->userService->save($this->generateNewUser(new Carbon()));
         $file = $this->saveTestFile($user);
 
         $this->assertInstanceOf(ManagedFileInterface::class, $this->fileService->find($file->getID()));
@@ -50,7 +50,7 @@ class FileServiceTest extends ObjectivityFilesTestCase
 
     public function testFindAll()
     {
-        $user = $this->userService->save($this->generateNewUser(new Carbon));
+        $user = $this->userService->save($this->generateNewUser(new Carbon()));
         $file = $this->saveTestFile($user);
         $files = $this->fileService->findAll();
         $this->assertInstanceOf(ManagedFileCollectionInterface::class, $files);
@@ -59,7 +59,7 @@ class FileServiceTest extends ObjectivityFilesTestCase
 
     public function testFindMany()
     {
-        $user = $this->userService->save($this->generateNewUser(new Carbon));
+        $user = $this->userService->save($this->generateNewUser(new Carbon()));
         $file1 = $this->saveTestFile($user);
         $file2 = $this->saveTestFile($user);
         $files = $this->fileService->findMany([$file1->getID(), $file2->getID()]);
@@ -69,7 +69,7 @@ class FileServiceTest extends ObjectivityFilesTestCase
 
     public function testFindByUrl()
     {
-        $user = $this->userService->save($this->generateNewUser(new Carbon));
+        $user = $this->userService->save($this->generateNewUser(new Carbon()));
         $file = $this->saveTestFile($user);
         $result = $this->fileService->FindByUrl($file->getURL());
         $this->assertInstanceOf(ManagedFileInterface::class, $result);
@@ -78,7 +78,7 @@ class FileServiceTest extends ObjectivityFilesTestCase
 
     public function testStoreNewFile()
     {
-        $user = $this->userService->save($this->generateNewUser(new Carbon));
+        $user = $this->userService->save($this->generateNewUser(new Carbon()));
         $testFile = $this->saveTestFile($user);
         $data = 'iVBORw0KGgoAAAANSUhEUgAAABwAAAASCAMAAAB/2U7WAAAABl'
                . 'BMVEUAAAD///+l2Z/dAAAASUlEQVR4XqWQUQoAIAxC2/0vXZDr'
@@ -98,7 +98,7 @@ class FileServiceTest extends ObjectivityFilesTestCase
     {
         $user = $this->userService->retrieveByCredentials(['email' => 'lipsum@lauraipsum.com']);
         if (!$user) {
-            $user = $this->userService->save($this->generateNewUser(new Carbon));
+            $user = $this->userService->save($this->generateNewUser(new Carbon()));
         }
         $testFile = $this->saveTestFile($user);
         $testFile = $this->saveTestFile($user);
@@ -118,7 +118,7 @@ class FileServiceTest extends ObjectivityFilesTestCase
 
     public function testFindByFileName()
     {
-        $user = $this->userService->save($this->generateNewUser(new Carbon));
+        $user = $this->userService->save($this->generateNewUser(new Carbon()));
         $file = $this->saveTestFile($user);
         $foundFile = $this->fileService->findByFileName($file->getFileName());
         $this->assertInstanceOf(ManagedFileInterface::class, $foundFile);
@@ -127,7 +127,7 @@ class FileServiceTest extends ObjectivityFilesTestCase
 
     public function testDelete()
     {
-        $user = $this->userService->save($this->generateNewUser(new Carbon));
+        $user = $this->userService->save($this->generateNewUser(new Carbon()));
         $file = $this->saveTestFile($user);
         $this->fileService->delete($file);
         $foundFile = $this->fileService->findByFileName($file->getFileName());

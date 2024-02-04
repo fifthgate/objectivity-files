@@ -10,5 +10,5 @@ use Fifthgate\Objectivity\Repositories\Infrastructure\Repository\Interfaces\Doma
 
 interface FileRepositoryInterface extends DomainEntityRepositoryInterface
 {
-    public function findByUrl(string $url) : ? ManagedFileInterface;
+    public function findByUrl(string $url): ?ManagedFileInterface;
 }

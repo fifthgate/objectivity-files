@@ -23,7 +23,7 @@ class FileService extends AbstractRepositoryDrivenDomainEntityManagementService 
     }
 
     //@codeCoverageIgnoreStart
-    public function getEntityInfo() : array
+    public function getEntityInfo(): array
     {
         return [
             'managedFile' => [
@@ -36,12 +36,12 @@ class FileService extends AbstractRepositoryDrivenDomainEntityManagementService 
     }
     //@codeCoverageIgnoreEnd
 
-    public function findByUrl(string $url) : ? ManagedFileInterface
+    public function findByUrl(string $url): ?ManagedFileInterface
     {
         return $this->repository->findByUrl($url);
     }
 
-    public function storeFile(ManagedFileInterface $file, UploadedFile $payload) : ? ManagedFileInterface
+    public function storeFile(ManagedFileInterface $file, UploadedFile $payload): ?ManagedFileInterface
     {
         //TODO - Add switch for non public filesystems.
         $fileURL = $payload->storePubliclyAs('/public/files', $file->getFileName());
@@ -52,7 +52,7 @@ class FileService extends AbstractRepositoryDrivenDomainEntityManagementService 
                 $existingFile->setTitle($file->getTitle());
                 $existingFile->setFileType($file->getFileType());
                 $existingFile->setFileName($file->getFileName());
-                $existingFile->setUpdatedAt(new Carbon);
+                $existingFile->setUpdatedAt(new Carbon());
                 $existingFile->setLastEditorUID($file->getLastEditorUID());
                 return $this->save($existingFile);
             }
@@ -64,12 +64,12 @@ class FileService extends AbstractRepositoryDrivenDomainEntityManagementService 
         // @codeCoverageIgnoreEnd
     }
 
-    public static function sanitiseFileName(string $fileName) : string
+    public static function sanitiseFileName(string $fileName): string
     {
         return preg_replace("/[^a-z0-9\.\-\_]/", "", strtolower($fileName));
     }
 
-    public function findByFileName(string $fileName) : ? ManagedFileInterface
+    public function findByFileName(string $fileName): ?ManagedFileInterface
     {
         return $this->repository->findByFileName($fileName);
     }

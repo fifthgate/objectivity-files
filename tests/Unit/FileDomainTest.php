@@ -10,7 +10,7 @@ use Fifthgate\Objectivity\Files\Domain\Collection\Interfaces\ManagedFileCollecti
 use Fifthgate\Objectivity\Files\Domain\Collection\ManagedFileCollection;
 use Fifthgate\Objectivity\Content\Domain\Core\Interfaces\ContentTypeDefinitionInterface;
 use Carbon\Carbon;
-use \DateTimeInterface;
+use DateTimeInterface;
 
 class FileDomainTest extends ObjectivityFilesTestCase
 {
@@ -39,7 +39,7 @@ class FileDomainTest extends ObjectivityFilesTestCase
 
     public function testFileCollection()
     {
-        $collection = new ManagedFileCollection;
+        $collection = new ManagedFileCollection();
         $testFile1Slug = $this->faker->regexify('[A-Za-z0-9]{20}');
         $testFile1Name = $testFile1Slug.'.jpg';
         $testFile1URL = 'public/'.$testFile1Name;

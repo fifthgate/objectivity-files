@@ -3,7 +3,7 @@
 namespace Fifthgate\Objectivity\Files\Domain;
 
 use Fifthgate\Objectivity\Files\Domain\Interfaces\ManagedFileInterface;
-use \DateTimeInterface;
+use DateTimeInterface;
 use Fifthgate\Objectivity\Core\Domain\AbstractDomainEntity;
 
 class ManagedFile extends AbstractDomainEntity implements ManagedFileInterface
@@ -44,7 +44,7 @@ class ManagedFile extends AbstractDomainEntity implements ManagedFileInterface
         $this->title = $title;
     }
 
-    public function getTitle() : string
+    public function getTitle(): string
     {
         return $this->title;
     }
@@ -54,7 +54,7 @@ class ManagedFile extends AbstractDomainEntity implements ManagedFileInterface
         $this->url = $url;
     }
 
-    public function getURL() : string
+    public function getURL(): string
     {
         return $this->url;
     }
@@ -65,7 +65,7 @@ class ManagedFile extends AbstractDomainEntity implements ManagedFileInterface
     }
 
 
-    public function getFileType() : string
+    public function getFileType(): string
     {
         return $this->fileType;
     }
@@ -75,7 +75,7 @@ class ManagedFile extends AbstractDomainEntity implements ManagedFileInterface
         $this->authorUID = $authorUID;
     }
 
-    public function getAuthorUID() : int
+    public function getAuthorUID(): int
     {
         return $this->authorUID;
     }
@@ -85,12 +85,12 @@ class ManagedFile extends AbstractDomainEntity implements ManagedFileInterface
         $this->lastEditorUID = $lastEditorUID;
     }
 
-    public function getLastEditorUID() : int
+    public function getLastEditorUID(): int
     {
         return $this->lastEditorUID;
     }
 
-    public function getFileName() : string
+    public function getFileName(): string
     {
         return $this->fileName;
     }
@@ -100,12 +100,12 @@ class ManagedFile extends AbstractDomainEntity implements ManagedFileInterface
         $this->fileName = $fileName;
     }
 
-    public function getHRTypeName() : string
+    public function getHRTypeName(): string
     {
         return self::HR_FILE_TYPE_INDICES[$this->getFileType()] ?? $this->getFileType();
     }
 
-    public function getFileSystem() : string
+    public function getFileSystem(): string
     {
         return $this->fileSystem;
     }
@@ -115,7 +115,7 @@ class ManagedFile extends AbstractDomainEntity implements ManagedFileInterface
         $this->fileSystem = $fileSystem;
     }
 
-    public function getPublicUrl() : ? string
+    public function getPublicUrl(): ?string
     {
         return str_replace('public/', '/storage/', $this->getUrl());
     }

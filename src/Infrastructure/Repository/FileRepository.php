@@ -12,18 +12,16 @@ use Fifthgate\Objectivity\Repositories\Infrastructure\Repository\AbstractDomainE
 
 class FileRepository extends AbstractDomainEntityRepository implements FileRepositoryInterface
 {
-    protected $mapper;
-
     public function __construct(FileMapperInterface $mapper)
     {
         $this->mapper = $mapper;
     }
-    public function findByUrl(string $url) : ? ManagedFileInterface
+    public function findByUrl(string $url): ?ManagedFileInterface
     {
         return $this->mapper->queryOne(['url' => $url]);
     }
 
-    public function findByFileName(string $fileName) : ? ManagedFileInterface
+    public function findByFileName(string $fileName): ?ManagedFileInterface
     {
         return $this->mapper->queryOne(['filename' => $fileName]);
     }

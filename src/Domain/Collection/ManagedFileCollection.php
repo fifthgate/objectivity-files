@@ -7,9 +7,9 @@ use Fifthgate\Objectivity\Files\Domain\Collection\Interfaces\ManagedFileCollecti
 
 class ManagedFileCollection extends AbstractDomainEntityCollection implements ManagedFileCollectionInterface
 {
-    public function filterByMimeTypes(array $mimeTypes) : ? ManagedFileCollectionInterface
+    public function filterByMimeTypes(array $mimeTypes): ?ManagedFileCollectionInterface
     {
-        $collection = new self;
+        $collection = new self();
         foreach ($this->collection as $item) {
             if (in_array($item->getFileType(), $mimeTypes)) {
                 $collection->add($item);
